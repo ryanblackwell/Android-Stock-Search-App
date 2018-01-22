@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:layout_marginTop="200dp"
+        android:id="@+id/newsTabProgressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:indeterminateTint="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_marginTop="220dp"
+        android:id="@+id/newsTabErrorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:text="Failed to load news data"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"/>
+
+    <ListView
+        android:id="@+id/news_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="55dp">
+    </ListView>
+
+    <!-- adjust paddingBottom on ListView to make it look normal so the last list item
+    isn't cut off!! -->
+
+</RelativeLayout>
+

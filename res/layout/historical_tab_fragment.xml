@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        />
+
+    <TextView
+        android:layout_marginTop="220dp"
+        android:id="@+id/historicalTabErrorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:text="Failed to load data"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"/>
+
+    <ProgressBar
+        android:layout_marginTop="200dp"
+        android:id="@+id/historicalTabProgressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:indeterminateTint="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

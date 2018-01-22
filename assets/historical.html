@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>testing</title>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src='file:///android_asset/moment.js'></script>
+
+    <script type="text/javascript">
+    	function CreateHistoricalChart(tickerSymbol, priceSeries, timeSeries)
+    	{
+    		var chartOptions=new Object();
+			chartOptions.rangeSelector=new Object();
+			chartOptions.rangeSelector.selected=0;
+			var buttons=new Array();
+			buttons[0]=new Object();
+			buttons[0].type="month";
+			buttons[0].count=1;
+			buttons[0].text="1m";
+			buttons[1]=new Object();
+			buttons[1].type="month";
+			buttons[1].count=3;
+			buttons[1].text="3m";
+			buttons[2]=new Object();
+			buttons[2].type="month";
+			buttons[2].count=6;
+			buttons[2].text="6m";
+			buttons[3]=new Object();
+			buttons[3].type="year";
+			buttons[3].count=1;
+			buttons[3].text="1y";
+			buttons[4]=new Object();
+			buttons[4].type="all";
+			buttons[4].text="All";
+			chartOptions.rangeSelector.allButtonsEnabled=true;
+			chartOptions.rangeSelector.buttons=buttons;
+
+			chartOptions.chart=new Object();
+			chartOptions.chart.type="area";
+
+			chartOptions.title=new Object();
+			chartOptions.title.text=tickerSymbol + " Stock Value";
+			chartOptions.subtitle=new Object();
+			chartOptions.subtitle.text='<a href="http://www.alphavantage.co/">Source: Alpa Vantage</a>';
+			chartOptions.subtitle.style=new Object();
+			chartOptions.subtitle.style.color='#0000FF';
+
+			chartOptions.yAxis=new Array();
+            chartOptions.yAxis[0]=new Object();
+            chartOptions.yAxis[0].title=new Object();
+            chartOptions.yAxis[0].title.text="Stock Value";
+
+			chartOptions.series=new Array();
+			chartOptions.series[0]=new Object();
+			chartOptions.series[0].name=tickerSymbol;
+			chartOptions.series[0].tooltip=new Object();
+			chartOptions.series[0].tooltip.valueDecimals=2;
+			chartOptions.series[0].data=new Array();
+			chartOptions.series[0].data=CreateHistoricalArray(priceSeries, timeSeries);
+
+			Highcharts.stockChart("container", chartOptions);
+    	}
+
+    	function CreateHistoricalArray(priceSeries, timeSeries)
+		{
+			var dataSeries=new Array();
+			var priceSeriesArray=new Array();
+			var timeSeriesArray=new Array();
+			priceSeriesArray=priceSeries;
+			timeSeriesArray=timeSeries;
+			var endIndex=timeSeriesArray.length-1;
+			var count=0;
+			for(var i=endIndex; i>=0; i--)
+			{
+				var timestamp=timeSeriesArray[i];
+				var priceString=priceSeriesArray[i];
+				dataSeries.unshift(CreateArrayEntry(timestamp,priceString));
+				count++;
+				if(count==1000){ break; }
+			}
+			return dataSeries;
+		}
+
+		function CreateArrayEntry(timestamp, priceString)
+		{
+			var unixMS=(moment(timestamp).unix())*1000;
+			var priceFloat=parseFloat(priceString);
+			var arrayEntry=new Array();
+			arrayEntry.push(unixMS);
+			arrayEntry.push(priceFloat);
+			return arrayEntry;
+		}
+
+    </script>
+
+</head>
+
+<body>
+
+<div id="container"></div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/current_tab_header"
+        android:layout_alignParentStart="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Stock Details"
+            android:textSize="28dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/facebook"
+            android:layout_marginLeft="70dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/facebook"/>
+
+        <ImageButton
+            android:id="@+id/starButton"
+            android:layout_marginLeft="25dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/offwhite_background"
+            android:src="@drawable/empty"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/price_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/current_tab_header">
+    </ListView>
+
+        <!--
+    <LinearLayout
+        android:id="@+id/indicator_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="410dp"
+        android:layout_below="@id/current_tab_header">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Indicators"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="12dp"
+            android:textSize="24dp"/>
+        <Spinner
+            android:id="@+id/indicatorSpinner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="0dp"/>
+        <TextView
+            android:text="Change"
+            android:id="@+id/changeButton"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            />
+    </LinearLayout>
+    -->
+
+        <!--
+        <ProgressBar
+            android:layout_marginTop="90dp"
+            android:id="@+id/currentTabSpinnerProgressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:indeterminateTint="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/indicator_spinner"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_marginTop="110dp"
+            android:id="@+id/currentTabSpinnerErrorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            android:text="Failed to load data"
+            android:visibility="invisible"
+            android:layout_below="@id/indicator_spinner"
+            android:layout_centerHorizontal="true"/>
+            -->
+
+        <!--
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:layout_marginTop="150dp"
+            android:paddingBottom="80dp"
+            android:layout_below="@id/indicator_spinner"/>
+            -->
+
+        <!-- add about this much paddingBottom to whatever the bottom element is above -->
+
+
+    <TextView
+        android:layout_marginTop="220dp"
+        android:id="@+id/currentTabErrorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:text="Failed to load data"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"/>
+
+    <ProgressBar
+        android:layout_marginTop="200dp"
+        android:id="@+id/currentTabProgressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:indeterminateTint="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+</ScrollView>
